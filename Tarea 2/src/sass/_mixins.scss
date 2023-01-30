@@ -1,0 +1,41 @@
+@mixin nomargin{
+    margin: 0px;
+    padding: 0px;
+}
+
+@mixin contenedorDefault{
+    background-color: beige;
+    padding: 20px 40px;
+}
+
+@mixin listaHorizontal{
+    list-style: none;
+    justify-content: space-between;
+
+}
+
+@mixin tabletMainDefault{
+    width:auto;
+    margin-right: 0;
+}
+
+
+
+@mixin tablet{
+    @media screen and (max-width: 1024px){
+        @content;
+    }
+
+}
+
+@mixin celular{
+    @media screen and (max-width: 720px){
+        @content;
+    }
+
+}
+
+
+
+
+
