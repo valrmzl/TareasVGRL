@@ -1,0 +1,226 @@
+/*
+Se utilizaron varibles para los colores,
+Para los parciales se crearon los 
+archivos _variables y _mixins,
+El nesting se uso a lo largo de todo el código,
+para ejemplificar y anidar cosas,
+Se hizo un extend de propiedades 
+en la foto personal de mi pagina,
+se hciron mixins, la mayoria de ellos
+con cosas básicas que se pueden usar varias veces,
+como lo es implementar una lista horizontal,
+margen y padiing en 0, etc
+A su vez, tambien se implementaron mixins con content, que fueron
+los que me ayudaron a implementar 2 breakpoints
+(tablet y celular)
+*/
+
+@import "mixins", "variables";
+
+*{@include nomargin;}
+
+h2{
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;;
+}
+
+h1,a{
+    font-size: 30px;    font-weight: 100;
+}
+
+body{
+    width: 1000px;
+    background-color: $color-body;
+    margin: 0 auto;
+
+}
+.contenedor{
+    @include contenedorDefault
+}
+
+.contenedor *{ 
+    border-radius: 9px;
+    margin-bottom: 20px;
+}
+
+
+header{
+    height: 150px;    text-align: center;
+    margin-top: 5px;
+    background-color: $color-header;
+}
+
+nav{
+    height: 80px;
+    width: 800px;
+    float: right;
+    margin-right: 20px;
+    padding: 5px;
+    background-color: $color-nav;
+    ul{
+        padding-bottom: 10px;
+        display: flex;
+        @include listaHorizontal;
+        li{
+            text-decoration: none;
+        }
+
+    }
+}
+
+.centro{
+    display: flex;
+}
+
+main{
+    width: 70%;
+    margin-right: 20px;
+    background-color: $color-main;
+    section{
+        height: 100px;
+        background-color: $color-main-section;
+    }
+}
+
+article{
+    background-color: $color-article;
+}
+
+aside{
+    width: 30%;
+    background-color: $color-aside;
+    > div[class^="section"]{
+        background-color: $color-aside-section;
+    }
+}
+
+#vale{
+    margin-bottom: 1px;
+    &-foto1{
+        @extend #vale;
+        width:90%;
+        height: 90%;
+    }
+}
+
+#info_personal{
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#segundo{
+    height: 300px;
+}
+
+.centro *{
+    padding: 10px;
+}
+
+footer{
+    background-color: $color-footer;
+    height: 90px;
+    padding-top: 5%;
+    text-align: center;
+}
+
+@include tablet{
+    h1{
+        font-size:28px ;
+    }
+    h2{
+        font-size: 22px;
+    }
+
+    body, header, .centro, footer{
+        width: auto;
+    }
+
+    .centro{
+        display: block;
+    }
+    main,aside{
+        @include tabletMainDefault;
+        > div[class^="section"]{
+            display: flow-root;
+            width: auto;
+        }
+    }
+
+    nav{
+        width: 500px;
+        > div[class^="ul"]{
+            padding-bottom: 10px;
+            display: flex;
+            @include listaHorizontal;
+        }
+    }
+
+    #vale{
+        margin-bottom: 1px;
+        display:flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #segundo{
+        height: auto;
+    }
+    a{
+        font-size: 20px;
+    }
+}
+
+
+@include celular{
+    .contenedor{
+        padding: 0px;
+    }
+
+    h1{
+        font-size: 40px;
+    }
+
+    header{
+        height: auto;
+        overflow: hidden;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    nav{
+        display: block;
+        float: none;
+        height: auto;
+        width: auto;
+        padding-right: 10px;
+        padding-left: 10px;
+        ul{
+            display: block;
+            li{
+                background-color:$color-contacto-mobile;
+                border-radius: 0px;
+                display: block;
+                margin-bottom: 2px;
+                text-align: center;
+            }
+        }    
+    }
+
+    section{
+        padding-left: 40px;
+
+    }
+
+    #vale{
+        width:90%;
+        height: 90%;
+        margin-bottom: 1px;
+    }
+
+    #segundo{
+        padding-left: 40px;
+    }
+
+    #info_personal{
+        font-size: 35px;
+    }
+
+}
