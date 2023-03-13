@@ -25,16 +25,7 @@ require('dotenv').config();
 
 const mongoUrl=process.env.MONGO_URL;
 const path= require('path');
-const {engine} = require('express-handlebars');
-app.engine('handlebars', engine({
-    defaultLayout:'main',
-    runtimeOptions:{
-        allowProtoPropertiesByDefault: true,
-        allowProtoMethodsByDefault: true
-    }
-}
-));
-app.set('view engine', 'handlebars');
+
 //el tercer paso es decirle donde esta la carpeta de views
 app.set('views', './src/views'); //mi app ya esta lista ára renderizar 
 // en vez de enviar un archivo ahora va a ser un render 
@@ -42,7 +33,7 @@ app.set('views', './src/views'); //mi app ya esta lista ára renderizar
 /*cuando lo suba lo mas probable es que no este disponible */ 
 //const port = 3000;
 const port=process.env.PORT || 3000;
-app.use('/assets', express.static(path.join(__dirname,'assets')));
+
 
 const swaggerDocs= swaggerJsDoc(swaggerConf);
 app.use('/swagger', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
