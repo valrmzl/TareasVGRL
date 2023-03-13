@@ -14,10 +14,12 @@ Estas son las acciones que podemos realizar:
 -Mostrar una tarea en especifico a partir de su id
 - Eliminar una tarea a partir de su id
 -Modificar una tarea a partir de su id
+
 Pasos para poder correr la API:
 
 -npm install
+
 -npm run start o npm run dev
 
-Se debe de sustituir la cadena de conexión en un archivo .env (el ejemplo de como hacerlo se encuentra en example.env).
+Se debe de sustituir la cadena de conexión en un archivo .env (el ejemplo de como hacerlo se encuentra en example.env). El usuario y contraseña correctos se puiseron en la entrega en canvas en un comentario.
 
