@@ -17,7 +17,7 @@ Estas son las acciones que podemos realizar:
 Pasos para poder correr la API:
 
 -npm install
-.npm run start o npm run dev
+-npm run start o npm run dev
 
 Se debe de sustituir la cadena de conexión en un archivo .env (el ejemplo de como hacerlo se encuentra en example.env).
 
