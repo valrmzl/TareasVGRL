@@ -16,8 +16,8 @@ Estas son las acciones que podemos realizar:
 -Modificar una tarea a partir de su id
 Pasos para poder correr la API:
 
-npm install
-nom run start o npm run dev
+-npm install
+.npm run start o npm run dev
 
 Se debe de sustituir la cadena de conexión en un archivo .env (el ejemplo de como hacerlo se encuentra en example.env).
 
